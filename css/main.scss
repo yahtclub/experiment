@@ -1,0 +1,195 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Slab:300);
+
+$lightColor: #FFF;
+$accentColor: #C9710C;
+$lightGray: #E2E2E2;
+$blueBlack: #021326;
+
+/* ==========================================================================
+   Global styles
+   ========================================================================== */
+
+* {
+  position: relative;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+  	overflow-y: scroll;
+  	padding: 0;
+  	transform-style: preserve-3d; //TODO: check compatibility?
+}
+
+a {
+	color: $lightColor;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.dark-overlay {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: rgba(0,0,0,0.3); //TODO: check compatibility
+}
+
+h1 {
+	color: $lightColor;
+	display: inline-block;
+	font-size: 80px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+span {
+	color: $accentColor;
+}
+
+
+/* ==========================================================================
+   Parallax
+   ========================================================================== */
+
+#preload {
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.paralax {
+	.background {
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		height: 100%;
+		width: 100%;
+	}
+	.container {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	.content {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+}
+
+/* ==========================================================================
+   Section-specific styling
+   ========================================================================== */
+
+#hello {
+	height: 100vh;
+	h1 {
+		margin: 40vh 0 20px 0;
+		position: fixed;
+	}
+	.background {
+		background: 50% 50% / cover;
+		background-attachment: fixed;
+		background-color: #ABB3B6; //to complement background image
+		background-image: url('../img/cloudy-landscape.jpg');
+		background-position: center center;
+		height: 100%;
+	}
+}
+
+#bio {
+	padding: 10% 25px;
+	text-align: left;
+	.bio-item {
+		display: inline-block;
+		height: auto;
+		padding: 25px;
+		width: 33%;
+		.content {
+			width: 100%; height: 100%;
+		}
+		.hashtag {
+			position: absolute;
+			top: 0; left: 0;
+			font-size: 12px;
+			color: white;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			padding: 20px;
+			z-index: 10;
+		}
+		.description {
+			position: absolute;
+			bottom: 0px; left: 0px;
+			color: $blueBlack;
+			font-family: "Roboto Slab", serif;
+			font-weight: 300;
+			line-height: 1.4;
+			padding: 5px;
+			z-index: 1;
+			-webkit-transition: -webkit-transform 0.3s ease;
+		}
+		img {
+			display: block;
+			width: 100%; height: auto;
+			z-index: 2;
+		}
+		.image-color {
+			display: none;
+			position: absolute;
+			top: 0; left: 0;
+			z-index: 3;
+		}
+	}
+	.bio-item:hover {
+		.image-color {
+			display: block;
+		}
+		.description {
+			-webkit-transform: translate3d(0,100%,0);
+		}
+	}
+}
+
+#quote {
+	padding: 0 10% 13% 10%;
+	font-size: 60px;
+	font-weight: 700;
+	text-align: center;
+	width: 100%;
+}
+
+#footer {
+	background-color: #272727;
+	color: $lightColor;
+	padding: 40px;
+	font-family: "Roboto Slab", serif;
+	font-size: 12px;
+	line-height: 1.4;
+	.half {
+		display:inline-block;
+		width: 49%;
+	}
+	.right {
+		text-align: right;
+	}
+}
+
+@import "responsive.scss";
