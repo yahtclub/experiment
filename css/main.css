@@ -450,4 +450,11 @@ span {
   }
 }
 
+.rainbow {
+   border-width: 10px;
+   border-color: white;
+   border-style: solid;
+   margin: 10px;
+}
+
 /*# sourceMappingURL=main.css.map */
